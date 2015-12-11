@@ -36,6 +36,9 @@ namespace MijnSnake
                 SpeelVeld.RowDefinitions.Add(new RowDefinition());
             }
 
+            Klok = new System.Windows.Threading.DispatcherTimer();
+            Klok.Tick += new EventHandler(Klok_Tik);
+
             StartSpel();
 
 
@@ -52,8 +55,7 @@ namespace MijnSnake
 
             SnelheidsTeller = 0;
 
-            Klok = new System.Windows.Threading.DispatcherTimer();
-            Klok.Tick += new EventHandler(Klok_Tik);
+
             Klok.Interval = new TimeSpan(0, 0, 0, 0, 1000 / Player.Snelheid);
             Klok.Start();
 
